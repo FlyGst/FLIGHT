@@ -1,0 +1,12 @@
+@EndUserText.label: 'Department (Access Control)'
+@MappingRole: true
+define role /DMO/R_DEPARTMENT_AUT 
+{
+  grant select on /DMO/R_DEPARTMENT_AUT
+  where ( Id ) 
+      = aspect pfcg_auth(
+          /DMO/DPMNT, 
+          /DMO/DPMNT, 
+          ACTVT = '03'
+         ); 
+}

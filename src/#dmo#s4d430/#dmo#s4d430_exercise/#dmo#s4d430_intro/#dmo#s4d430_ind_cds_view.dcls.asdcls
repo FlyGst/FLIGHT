@@ -1,0 +1,11 @@
+@EndUserText.label: 'Demo: Access Control for S4D430 intro'
+@MappingRole: true
+define role /DMO/S4D430_IND_CDS_VIEW {
+    grant
+        select
+            on
+                /DMO/S4D430_IND_CDS_VIEW
+                    where
+                        Id <> '0000';
+                        
+}
