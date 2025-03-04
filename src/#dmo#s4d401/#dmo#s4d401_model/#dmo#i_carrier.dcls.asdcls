@@ -1,0 +1,8 @@
+@EndUserText.label: 'Carrier - Access Control'
+@MappingRole: true
+define role /DMO/I_CARRIER {
+    grant select on /DMO/I_CARRIER1
+              where (AirlineID) = aspect pfcg_auth(/DMO/CARR, /DMO/CARR , ACTVT = '03'); 
+}
+
+// NO Authorisation Objects in ABAP train

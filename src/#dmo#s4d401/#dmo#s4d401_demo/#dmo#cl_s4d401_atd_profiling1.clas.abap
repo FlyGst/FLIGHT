@@ -1,13 +1,29 @@
-class /DMO/CL_S4D401_ATD_PROFILING1 definition
-  public
-  create private .
+CLASS /DMO/cl_s4d401_atd_profiling1 DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
 
-public section.
-protected section.
-private section.
+  PUBLIC SECTION.
+
+    INTERFACES if_oo_adt_classrun .
+  PROTECTED SECTION.
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
 CLASS /DMO/CL_S4D401_ATD_PROFILING1 IMPLEMENTATION.
+
+
+  METHOD if_oo_adt_classrun~main.
+
+
+    DATA(flights) = lcl_data=>get_flights( ).
+
+    SORT flights BY flight_date DESCENDING.
+
+    out->write(  name = `List of all Flights`
+                 data = flights ).
+
+  ENDMETHOD.
 ENDCLASS.
